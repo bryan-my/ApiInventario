@@ -42,4 +42,8 @@ public class Producto
     @Column(nullable = false)
     private Boolean disponibilidad;
 
+    @ManyToOne
+    @JoinColumn(name = "inventario_id")
+    private Inventario inventario;
+
 }
