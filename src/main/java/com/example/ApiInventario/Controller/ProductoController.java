@@ -28,6 +28,7 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
+    @GetMapping
     public ResponseEntity<List<Producto>> getAll(){
         return ResponseEntity.ok(productoService.getAll());
     }

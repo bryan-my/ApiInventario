@@ -33,8 +33,8 @@ public class Producto
     private int precio;
     
     @ManyToOne
-    @JoinColumn(name = "categoria")
-    private String categoria;
+    @JoinColumn(name = "categoria_id")
+    private Categoria categoria;
     
     @Column(name = "stock_actual", nullable = false)
     private Integer stock_actual = 0;
