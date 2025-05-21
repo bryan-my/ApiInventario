@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,21 +23,23 @@ public class Producto
     @GeneratedValue(strategy = GenerationType.IDENTITY)//Auto increment
     private Integer id;
 
-    @Column(nullable = false, length = 45)
+    @Column(nullable = false, length = 150)
     private String nombre;
     
     @Column(nullable = false, length = 45)
-    private int cantidad;
+    private String descripcion;
    
     @Column(nullable = false, length = 45)
-    private String marca;
+    private int precio;
     
-    @Column(nullable = false, length = 45)
-    private String descripcion;
+    @ManyToOne
+    @JoinColumn(name = "categoria")
+    private String categoria;
     
-    @Column(nullable = false, length = 45)
-    private String precio;
-
-
+    @Column(name = "stock_actual", nullable = false)
+    private Integer stock_actual = 0;
+    
+    @Column(nullable = false)
+    private Boolean disponibilidad;
 
 }
