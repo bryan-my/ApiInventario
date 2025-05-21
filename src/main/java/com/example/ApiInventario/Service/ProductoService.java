@@ -22,7 +22,7 @@ public class ProductoService {
     }
 
     public Producto getById(Integer id){
-        Optional<Producto> producto = productoRepository.findById(null);
+        Optional<Producto> producto = productoRepository.findById(id);
         return producto.orElse(null);
     }
 
